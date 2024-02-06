@@ -36,7 +36,7 @@ $(document).ready(function(){
                     $("#forecasts").append(
                         `<div class="bg-secondary">
                             <h3>`+dayjs.unix(data.list[i].dt).format("D/MM/YYYY")+`</h3>
-                            <img src="https://openweathermap.org/img/wn/`+ data.list[i].weather[0].icon +`.png">
+                            <img src="http://openweathermap.org/img/wn/`+ data.list[i].weather[0].icon +`.png">
                             <h4>Temp:`+data.list[i].main.temp +` °C</h4>
                             <h4>Wind:`+data.list[i].wind.speed+` km/h</h4>
                             <h4>Humidity:`+data.list[i].main.humidity+` %</h4>
@@ -48,14 +48,14 @@ $(document).ready(function(){
 
     }
     function weather(lat, lon){
-        var apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=`+ lat +`&lon=`+ lon +`&units=metric&appid=`+ key;
+        var apiURL = `http://api.openweathermap.org/data/2.5/weather?lat=`+ lat +`&lon=`+ lon +`&units=metric&appid=`+ key;
         fetch(apiURL)
         .then((response) => response.json())
         .then(function(data){
             $("#today").empty();
             $("#today").append(`
                 <h2>`+city+ " ("+dayjs.unix(data.dt + data.timezone).format("D/MM/YYYY")+`)</h2>
-                <img src="https://openweathermap.org/img/wn/`+ data.weather[0].icon +`.png"></img>
+                <img src="http://openweathermap.org/img/wn/`+ data.weather[0].icon +`.png"></img>
                 <h4>Temp:`+data.main.temp+` °C</h4>
                 <h4>Wind:`+data.wind.speed+` km/h</h4>
                 <h4>Humidity:`+data.main.humidity+` %</h4>
