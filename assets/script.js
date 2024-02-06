@@ -67,7 +67,7 @@ $(document).ready(function(){
         getCoords($("#citySearchBar").val());
     });
     function getCoords(city){
-        var locationApiURL = `http://api.openweathermap.org/geo/1.0/direct?q=`+city+`&limit=5&appid=`+ key;
+        var locationApiURL = `https://api.openweathermap.org/geo/1.0/direct?q=`+city+`&limit=5&appid=`+ key;
         console.log(locationApiURL);
         fetch(locationApiURL)
         .then(response => response.json())
